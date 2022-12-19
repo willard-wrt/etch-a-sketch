@@ -14,7 +14,40 @@ border: 1px solid black;
 height: 80px;
 width: 600px;
 margin: 20px;
+display: flex;
 }
+
+.option-box {
+display: flex;
+flex-direction: column; 
+}
+
+.option-btns {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 400px;  
+}
+
+.eraser-btn {
+ 
+padding: 8px 15px;
+border-radius: 5px;
+font-size: 14px;
+background-color: #ffdae0;
+border: 0px;
+margin: 20px;
+
+}
+
+.rgb-btn {
+padding: 8px 15px;
+border-radius: 5px;
+font-size: 14px;
+
+
+}
+  
 
 .switch {
 margin: 0 2px;
@@ -88,9 +121,14 @@ margin: 2px 2px;
 .grid-slider{
 display: flex;
 padding: 3px;  
-margin: 2px 0px 2px;
+margin: 2px 2px 2px;
 
 }
+
+.reset-btn{
+margin-left: 5px;  
+}
+
 
 .slidecontainer {
 border: 1px solid black;
@@ -127,3 +165,7 @@ width: 600px;
   border: 1px solid rgb(212, 212, 212); 
 } 
 
+.screen {
+  display: flex;
+  justify-content: center;
+}

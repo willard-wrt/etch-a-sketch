@@ -20,62 +20,40 @@ function removeAllChildNodes(parent){
     }
 }
 
-createGrid();
-
-drawingToggle.addEventListener('change', function() {
-    removeAllChildNodes(gridScreen);    
-    value = slideValue.value;
-    slideText.innerHTML = `${value}*${value}`;
-    gridScreen.setAttribute('style', `grid-template-columns: repeat(${value}, 2fr); grid-template-rows: repeat(${value}, 2fr);`);
-    console.log(drawingToggle.checked);
-    if (drawingToggle.checked == true )
-    {
-    for (let i = 0; i< value*value; i+= 1) {
-        let createDiv = document.createElement('div');
-        createDiv.classList.add('cell');
-        createDiv.addEventListener('mousedown',function(e){e.target.style.backgroundColor = 'black';})
-        gridScreen.appendChild(createDiv);
-      }
+function modifyGrid() {
+  value = slideValue.value;
+  slideText.innerHTML = `${value}*${value}`;
+  removeAllChildNodes(gridScreen);
+  gridScreen.setAttribute('style', `grid-template-columns: repeat(${value}, 2fr); grid-template-rows: repeat(${value}, 2fr);`);
+  //console.log(drawingToggle.checked);
+  if (drawingToggle.checked == true )
+  {
+  for (let i = 0; i< value*value; i+= 1) {
+      let createDiv = document.createElement('div');
+      createDiv.classList.add('cell');
+      createDiv.addEventListener('mousedown',function(e){e.target.style.backgroundColor = 'black';})
+      createDiv.addEventListener('mouseover',function(e){if (e.buttons === 1) e.target.style.backgroundColor = 'black';})
+      gridScreen.appendChild(createDiv);
     }
-    if (drawingToggle.checked == false )
-    {
-    for (let i = 0; i< value*value; i+= 1) {
-        let createDiv = document.createElement('div');
-        createDiv.classList.add('cell');
-        createDiv.addEventListener('mouseover',function(e){e.target.style.backgroundColor = 'black';})
-        gridScreen.appendChild(createDiv);
-      }
+  }
+  if (drawingToggle.checked == false )
+  {
+  for (let i = 0; i< value*value; i+= 1) {
+      let createDiv = document.createElement('div');
+      createDiv.classList.add('cell');
+      createDiv.addEventListener('mouseover',function(e){e.target.style.backgroundColor = 'black';})
+      gridScreen.appendChild(createDiv);
     }
-    
+  }
+  }
 
+
+drawingToggle.addEventListener('change', function() {   
+modifyGrid()    
 });
 
-
 slideValue.addEventListener('input', function() {
-value = slideValue.value;
-slideText.innerHTML = `${value}*${value}`;
-removeAllChildNodes(gridScreen);
-gridScreen.setAttribute('style', `grid-template-columns: repeat(${value}, 2fr); grid-template-rows: repeat(${value}, 2fr);`);
-console.log(drawingToggle.checked);
-if (drawingToggle.checked == true )
-{
-for (let i = 0; i< value*value; i+= 1) {
-    let createDiv = document.createElement('div');
-    createDiv.classList.add('cell');
-    createDiv.addEventListener('mousedown',function(e){e.target.style.backgroundColor = 'black';})
-    gridScreen.appendChild(createDiv);
-  }
-}
-if (drawingToggle.checked == false )
-{
-for (let i = 0; i< value*value; i+= 1) {
-    let createDiv = document.createElement('div');
-    createDiv.classList.add('cell');
-    createDiv.addEventListener('mouseover',function(e){e.target.style.backgroundColor = 'black';})
-    gridScreen.appendChild(createDiv);
-  }
-}
+modifyGrid()
+});
 
-})
-;
-
+createGrid();
