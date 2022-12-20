@@ -1,7 +1,18 @@
-.title {
-text-align: center;    
+html body{
+background: #e9e9e9;  
 }
 
+.title {
+text-align: center;
+}
+.title h1{
+font-size: 45px;
+margin: 20px 10px 0px;    
+}
+
+.slider-text {
+width: 78px;  
+}
 .main-container {
 display: flex;
 justify-content: center;
@@ -20,6 +31,7 @@ display: flex;
 .option-box {
 display: flex;
 flex-direction: column; 
+width: 300px;
 }
 
 .option-btns {
@@ -36,8 +48,44 @@ border-radius: 5px;
 font-size: 14px;
 background-color: #ffdae0;
 border: 0px;
-margin: 20px;
 
+
+}
+
+.pencil-btn {
+margin: 20px; 
+padding: 10px 10px;
+font-size: 14px;
+border-radius: 5px;
+background-color: #ffe8c9;
+
+}
+
+.rgb-btn {
+background-color: white;  
+}
+
+button.active {
+font-weight: bolder ;
+}
+
+button.rgb-btn.active{
+background: linear-gradient(to right, #ff66de, #0099ff , #ffee00, #33ffd3, #6666ff);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+animation: rainbow_animation 6s ease-in-out infinite;
+background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+  0%,100% {
+      background-position: 0 0;
+  }
+
+  50% {
+      background-position: 100% 0;
+  }
 }
 
 .rgb-btn {
@@ -126,7 +174,7 @@ margin: 2px 2px 2px;
 }
 
 .reset-btn{
-margin-left: 5px;  
+margin-left: 6px;  
 }
 
 
@@ -165,7 +213,12 @@ width: 600px;
   border: 1px solid rgb(212, 212, 212); 
 } 
 
+.cell {
+  user-select: none;
+}
+
 .screen {
   display: flex;
   justify-content: center;
 }
+
